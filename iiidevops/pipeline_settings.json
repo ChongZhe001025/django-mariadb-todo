@@ -1,6 +1,6 @@
 {
   "name": "Python Django with Mariadb - Todo",
-  "description": "Python 3.7 / Django 3.1.7 / MariaDB 10.2",
+  "description": "Python 3.7 / Django 3.1.7 / MariaDB 10.2 <a class='el-link el-link--primary' href='https://github.com/iiidevops-templates/django-mariadb-todo/blob/master/README.md'>Todo範本說明</a>",
   "arguments": [
     {
       "key": "db.username",

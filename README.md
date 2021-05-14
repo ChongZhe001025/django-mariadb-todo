@@ -1,1 +1,1 @@
-# Django-ToDo-App-with-MariaDB
+# Django-ToDo-App-with-Mariadb

@@ -123,12 +123,15 @@ stages:
     branch:
       include:
       - master
-      - develop
 
-- name: Deploy--Web
+- name: Deploy--Web including DB config
   steps:
   - applyAppConfig:
       answers:
+        db.name: todo_db
+        db.password: templatePassword
+        db.releaseName: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-db
+        db.username: iiidevops
         git.branch: ${CICD_GIT_BRANCH}
         git.commitID: ${CICD_GIT_COMMIT}
         git.repoName: ${CICD_GIT_REPO_NAME}

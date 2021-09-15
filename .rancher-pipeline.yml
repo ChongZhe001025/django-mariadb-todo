@@ -18,7 +18,6 @@ stages:
       include:
       - master
       - develop
-
 - name: Test--Checkmarx source code scan
   iiidevops: checkmarx
   steps:
@@ -38,7 +37,6 @@ stages:
       include:
       - master
       - develop
-
 - name: Deploy--DB
   iiidevops: deployed-environments
   steps:
@@ -61,8 +59,7 @@ stages:
   when:
     branch:
       include:
-      - master
-
+      - skip
 - name: Deploy--Wait DB deployment
   iiidevops: deployed-environments
   steps:
@@ -84,8 +81,7 @@ stages:
   when:
     branch:
       include:
-      - master
-
+      - skip
 - name: Deploy--Set Web environment variables
   iiidevops: deployed-environments
   steps:
@@ -108,8 +104,7 @@ stages:
   when:
     branch:
       include:
-      - master
-
+      - skip
 - name: Build--Build and push docker image
   iiidevops: deployed-environments
   steps:
@@ -128,8 +123,7 @@ stages:
   when:
     branch:
       include:
-      - master
-
+      - skip
 - name: Deploy--Web including DB config
   iiidevops: deployed-environments
   steps:
@@ -147,7 +141,7 @@ stages:
         pipeline.sequence: ${CICD_EXECUTION_SEQUENCE}
         web.imageTag: ${CICD_GIT_REPO_NAME}/${CICD_GIT_BRANCH}:${CICD_GIT_COMMIT}
         web.port: 8080
-        kube.ingress.base_domain: "ingress-dev3.iiidevops.org"
+        kube.ingress.base_domain: ingress-dev3.iiidevops.org
       catalogTemplate: cattle-global-data:iii-dev-charts3-web
       name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-serv
       targetNamespace: ${CICD_GIT_REPO_NAME}
@@ -155,8 +149,7 @@ stages:
   when:
     branch:
       include:
-      - master
-
+      - skip
 - name: Deploy--Wait Web deployment
   iiidevops: deployed-environments
   steps:
@@ -178,8 +171,7 @@ stages:
   when:
     branch:
       include:
-      - master
-
+      - skip
 - name: Test--ZAP
   iiidevops: zap
   steps:
@@ -200,7 +192,6 @@ stages:
     branch:
       include:
       - master
-
 - name: Test--WebInspect
   iiidevops: webinspect
   steps:
@@ -220,7 +211,6 @@ stages:
     branch:
       include:
       - master
-
 - name: Test--Postman
   iiidevops: postman
   steps:
@@ -241,7 +231,6 @@ stages:
     branch:
       include:
       - master
-
 - name: Test--SideeX
   iiidevops: sideex
   steps:
@@ -262,4 +251,3 @@ stages:
     branch:
       include:
       - master
-

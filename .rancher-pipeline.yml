@@ -61,7 +61,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Deploy--Wait DB deployment
   iiidevops: deployed-environments
   steps:
@@ -83,7 +83,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Deploy--Set Web environment variables
   iiidevops: deployed-environments
   steps:
@@ -106,7 +106,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Build--Build and push docker image
   iiidevops: deployed-environments
   steps:
@@ -125,7 +125,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Deploy--Web including DB config
   iiidevops: deployed-environments
   steps:
@@ -151,7 +151,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Deploy--Wait Web deployment
   iiidevops: deployed-environments
   steps:
@@ -173,7 +173,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Test--ZAP
   iiidevops: zap
   steps:
@@ -194,7 +194,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Test--WebInspect
   iiidevops: webinspect
   steps:
@@ -214,7 +214,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Test--Postman
   iiidevops: postman
   steps:
@@ -235,7 +235,7 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
 - name: Test--SideeX
   iiidevops: sideex
   steps:
@@ -256,4 +256,4 @@ stages:
   when:
     branch:
       include:
-      - skip
+      - master
